@@ -1,52 +1,51 @@
-# Little Reminders ✦
+# ✦ Little Reminders
 
-A gamified, anonymous affirmation app. Every reminder is written twice: **in tech language** (a programming metaphor) and **in human language** (the same message in plain words). Collect XP, level up, save favourites and share quotes with the community, all without creating an account.
+**A little reminder that you're doing better than you think.**
 
-**Live demo:** _add your URL here_ · **Stack:** HTML, CSS, vanilla JavaScript, Supabase (Auth, Postgres, RLS)
-## Screenshots
+Little Reminders is a gamified affirmation website designed to make your everyday moments a little brighter. Every reminder comes in two versions: one inspired by the world of technology and programming, and another in simple, everyday language.
 
-![Little Reminders - Home Page](docs/Screenshot%202026-11-13%20191410.png)
+Whether you're a developer, a student, or someone who simply needs a little encouragement, there's a reminder waiting for you.
 
-## Features
+<p align="center">
+  <img src="docs/Screenshot%202026-11-13%20191410.png" alt="Little Reminders homepage" width="85%">
+</p>
 
-- 16 dual-language reminders in three categories (self growth, work and focus, rest and balance), with a category filter that `Give me another` respects
-- **Gamification:** +10 XP for each new reminder and +10 XP the first time you save one. XP fills a level bar (Seedling → Sprout → Bloom → Glow → Radiant → Luminary). XP is capped at 100 per day.
-- Anonymous progress: Supabase Anonymous Sign-Ins give each browser a private profile and saved list
-- Community quotes: anonymous, length-limited, moderated before they appear
-- Works offline: falls back to `LOCAL MODE` using `localStorage` when Supabase isn't configured
-- Keyboard shortcut (`R`), Escape closes any dialog
+## ✨ What makes it special?
 
-## Quick start
+- **Two ways to feel inspired:** Every reminder has a tech-inspired version and a human-friendly version.
+- **Collect XP:** Earn experience points as you explore new reminders and save your favourites.
+- **Level up:** Progress through six levels, from Seedling to Luminary.
+- **Find your kind of reminder:** Explore three categories — Self Growth, Work & Focus, and Rest & Balance.
+- **Save your favourites:** Keep the reminders you want to revisit.
+- **Share with the community:** Share your own words of encouragement and discover quotes from others.
+- **No sign-up required:** Just open the website and enjoy your reminders.
 
-1. Create a project at [supabase.com](https://supabase.com) and enable **Authentication → Providers → Anonymous Sign-Ins**.
-2. In the **SQL Editor**, run all of `schema.sql`.
-3. Put your Project URL and `anon` key in `supabase-config.js`.
-4. Open `index.html` (or serve the folder with any static host). No build step.
+## 🌱 Explore the experience
 
-To show community quotes straight away during a demo, run `update public.public_quotes set approved = true;` or approve rows in the Table Editor.
+| Self Growth | Work & Focus | Rest & Balance |
+|---|---|---|
+| For your personal journey | For your goals and ambitions | For the days you need to slow down |
 
-## Deploy
+## 🎮 Your little progress journey
 
-Static hosting only: GitHub Pages, Netlify, Vercel or Cloudflare Pages. The `anon` key is designed to be public; security comes from Row Level Security and server-side functions (see [SECURITY.md](SECURITY.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)). Never place a `service_role` key in the browser.
+Every interaction is a small step forward. Discover reminders, collect XP, save the ones that resonate with you, and watch your progress grow.
 
-## Project structure
+**Six levels to unlock:**
 
-| File | Purpose |
-| --- | --- |
-| `index.html` | Page structure and dialogs |
-| `styles.css` | Responsive design and animations |
-| `reminders.js` | Reminder library |
-| `script.js` | App logic: state, XP, filters, saved list, quotes, Supabase |
-| `supabase-config.js` | Public Supabase URL and anon key |
-| `schema.sql` | Tables, RLS policies, `record_event()` function |
+`🌱 Seedling` → `🌿 Sprout` → `🌸 Bloom` → `✨ Glow` → `🌟 Radiant` → `💫 Luminary`
 
-## What I learned / trade-offs
+## 💭 Made for everyone
 
-- **Anonymous auth** removes sign-up friction, but progress lives in one browser until an account is linked (planned).
-- **Never trust the client:** XP originally came from the browser, so anyone could send `xp = 999999`. It is now awarded only by a `security definer` Postgres function, and direct writes to `profiles` are revoked.
-- **Open submissions need moderation:** public quotes are hidden until approved.
-- A static site can't hide keys, so the design assumes the key is public and puts the protection in the database.
+You don't need to understand code to enjoy Little Reminders.
 
-## Roadmap
+A reminder might speak to a programmer through a metaphor about debugging, while the human version communicates the same message in everyday words.
 
-Link anonymous users to email/Google, PWA with daily notification, reminders in a Supabase table, tests and CI, focus trapping in dialogs.
+Because encouragement should make sense to everyone.
+
+## 🔒 Your space, your progress
+
+Little Reminders is designed to be enjoyed without creating a traditional account. Your anonymous profile keeps track of your progress and saved reminders.
+
+
+  Made with ♡ and a little bit of code.
+</p>
