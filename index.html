@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101c2f" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; img-src 'self' data:;" />
+    <title>Little Reminders — Grow at your own pace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Little Reminders home">
+          <span class="brand-mark">✦</span>
+          <span>little <strong>reminders</strong></span>
+        </a>
+        <div class="top-actions">
+          <span class="sync-status" id="syncStatus"><i></i> LOCAL MODE</span>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="pulse-dot"></span> YOUR DAILY RESET</div>
+            <h1>A small reminder<br />for your <em>big</em> journey.</h1>
+            <p>Because progress is easier when you don't have to carry it all alone.</p>
+            <div class="hero-actions">
+              <button class="primary-button" id="anotherButton">Give me another <span>→</span></button>
+              <span class="keyboard-hint"><kbd>R</kbd> new reminder</span>
+            </div>
+          </div>
+          <div class="community-widget">
+            <div class="community-top"><span class="community-icon">✎</span><span class="section-kicker">LEAVE A LITTLE LIGHT</span><span class="community-live"><i></i> OPEN TO EVERYONE</span></div>
+            <h2>Add your own quote.</h2>
+            <p>Something you needed to hear today might be exactly what someone else needs tomorrow.</p>
+            <form id="quoteForm">
+              <textarea id="quoteInput" maxlength="240" placeholder="Write a reminder, thought, or quote..." required></textarea>
+              <div class="quote-form-footer"><span id="quoteCount">0 / 240</span><button class="primary-button" type="submit">Share it <span>→</span></button></div>
+            </form>
+            <button class="community-link" id="readQuotesButton">Read quotes by other people <em>— they might inspire you</em> <span>↗</span></button>
+          </div>
+        </section>
+
+        <section class="content-grid">
+          <div class="main-column">
+            <div class="section-heading"><div><span class="section-kicker">TODAY'S DROP</span><h2 id="reminderNumber">Reminder #014</h2></div><div class="date-pill">◷ <span id="currentDate"></span></div></div>
+            <article class="reminder-card" id="reminderCard">
+              <div class="card-label"><span class="label-icon">⌘</span><span>IN TECH LANGUAGE</span><span class="line"></span><span class="tag">BUILD / DEBUG / GROW</span></div>
+              <h3 id="techQuote">Your life isn't a failed program. It's still compiling.</h3>
+              <p id="techBody">Don't compare your version 1.0 with someone else's version 10.0. Debug your mistakes, push your progress and trust the process.</p>
+              <div class="card-divider"></div>
+              <div class="card-label human-label"><span class="label-icon">✿</span><span>IN HUMAN LANGUAGE</span></div>
+              <h3 class="human-quote" id="humanQuote">You're not behind in life. You're just growing at your own pace.</h3>
+              <p id="humanBody">It's okay to make mistakes, take breaks and start again. Your journey doesn't have to look like anyone else's.</p>
+              <div class="card-footer"><span class="xp-reward">+10 XP <i>•</i> SELF GROWTH</span><button class="heart-button" id="saveButton" aria-label="Save reminder">♡</button></div>
+            </article>
+            <div class="after-card"><span>“</span><p id="footerMessage">Keep going. You're still becoming.</p><span>♡</span></div>
+          </div>
+          <aside class="side-column">
+            <div class="side-heading"><div><span class="section-kicker">YOUR SPACE</span><h2>Make it yours</h2></div><button class="text-button" id="clearFilter">Reset</button></div>
+            <div class="level-card"><div class="level-top"><span>YOUR LEVEL</span><strong id="levelNum">LVL 1</strong></div><div class="level-title"><span class="level-icon">✦</span><div><h2 id="levelName">Seedling</h2><p id="xpText">0 / 100 XP</p></div></div><div class="progress-track"><span id="xpBar"></span></div></div>
+            <div class="filter-list" role="group" aria-label="Reminder categories">
+              <button class="filter active" data-filter="all"><span>✦</span> All reminders <b id="allCount">16</b></button>
+              <button class="filter" data-filter="growth"><span>↗</span> Self growth <b>7</b></button>
+              <button class="filter" data-filter="work"><span>⌘</span> Work & focus <b>5</b></button>
+              <button class="filter" data-filter="rest"><span>☾</span> Rest & balance <b>4</b></button>
+            </div>
+            <div class="saved-panel"><div class="saved-title"><span>♡</span><h3>Saved reminders</h3></div><p id="savedText">Your favorite reminders will live here.</p><button id="savedButton">View saved <span>→</span></button></div>
+            <div class="mini-quote"><span class="quote-mark">“</span><p>Consistency is just<br />kindness you repeat<br />to yourself.</p><small>— YOUR FUTURE SELF</small></div>
+          </aside>
+        </section>
+      </main>
+      <footer><span>Made for the days you need a little extra</span><span>© 2026 LITTLE REMINDERS</span></footer>
+    </div>
+
+    <div class="welcome-overlay" id="welcomeOverlay" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+      <div class="welcome-modal"><button class="close-modal" id="closeWelcome" aria-label="Close">×</button><span class="modal-sparkle">✦</span><span class="modal-kicker">YOUR RANDOM REMINDER</span><h2 id="welcomeTitle">You showed up.<br /><em>That counts.</em></h2><div class="modal-reminder"><strong id="modalQuote">A fresh reminder is waiting for you.</strong><span id="modalHuman">Take a breath. You are doing better than you think.</span></div><p>Take what you need today. There is no perfect pace — only your pace.</p><button class="primary-button" id="startButton">Open my reminder <span>→</span></button><small>Come back tomorrow for another one.</small></div>
+    </div>
+    <div class="saved-overlay" id="savedOverlay" role="dialog" aria-modal="true" aria-labelledby="savedTitle">
+      <div class="saved-modal"><button class="close-modal" id="closeSaved" aria-label="Close saved reminders">×</button><span class="modal-sparkle">♡</span><span class="modal-kicker">YOUR PERSONAL COLLECTION</span><h2 id="savedTitle">Saved reminders</h2><p class="saved-intro">The words you want to carry with you.</p><div class="saved-items" id="savedItems"></div><button class="primary-button" id="backToReminders">Back to reminders <span>→</span></button></div>
+    </div>
+    <div class="community-overlay" id="communityOverlay" role="dialog" aria-modal="true" aria-labelledby="communityTitle">
+      <div class="community-modal"><button class="close-modal" id="closeCommunity" aria-label="Close community quotes">×</button><span class="modal-sparkle">✦</span><span class="modal-kicker">FROM THE COMMUNITY</span><h2 id="communityTitle">Words worth keeping.</h2><p class="saved-intro">Shared by people who stopped by before you.</p><div class="community-quotes" id="communityQuotes"><div class="empty-saved">Loading little bits of wisdom...</div></div><button class="primary-button" id="closeCommunityButton">Back to reminders <span>→</span></button></div>
+    </div>
+    <div class="xp-pop" id="xpPop"><span>+10 XP</span><strong>Nice choice!</strong><small>Your reminder was saved ✦</small></div>
+    <div class="toast" id="toast">Reminder saved to your space ♡</div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.39.7"></script>
+    <script src="supabase-config.js"></script>
+    <script src="reminders.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
