@@ -6,6 +6,9 @@ Little Reminders is a gamified affirmation website designed to make your everyda
 
 Whether you're a developer, a student, or someone who simply needs a little encouragement, there's a reminder waiting for you.
 
+
+https://littlereminders.me/
+
 <p align="center">
   <img src="docs/Screenshot%202026-11-13%20191410.png" alt="Little Reminders homepage" width="85%">
 </p>
