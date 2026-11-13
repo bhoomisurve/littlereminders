@@ -3,8 +3,9 @@
 A gamified, anonymous affirmation app. Every reminder is written twice: **in tech language** (a programming metaphor) and **in human language** (the same message in plain words). Collect XP, level up, save favourites and share quotes with the community, all without creating an account.
 
 **Live demo:** _add your URL here_ · **Stack:** HTML, CSS, vanilla JavaScript, Supabase (Auth, Postgres, RLS)
+## Screenshots
 
-<!-- Add a screenshot or GIF: ![Little Reminders](docs/screenshot.png) -->
+![Little Reminders - Home Page](docs/Screenshot%202026-11-13%20191410.png)
 
 ## Features
 
